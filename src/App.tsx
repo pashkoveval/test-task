@@ -4,7 +4,10 @@ import icon from './checkbox-icon.svg'
 import { list, TItem } from './list';
 
 const App = () => {
-  const commonList = list;
+  const key = 'name'
+  const commonList = list.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
+  // сортировка подключена только к общему списку
+
   const [items, setItems] = useState<TItem[]>(commonList);
   const [selectedItems, setSelectedItems] = useState<TItem[]>([]);
   const [input, setInput] = useState<string>('');
@@ -13,7 +16,7 @@ const App = () => {
   const filterItems = items.filter((el) => {
     if (input === '') return el;
     else return el.name.toLowerCase().includes(input);
-  });
+  }); // интерактивный поиск без кнопки, если нужна - добавлю
 
   useEffect(() => {
     setItems(items);
@@ -34,13 +37,13 @@ const App = () => {
 
       if (item.checked === true) {
         selectedItems.push(item);
-        setSelectedItems(selectedItems);
+        setSelectedItems(selectedItems); // в реальности нужно вынести в отдельную логику
       }
     } else {
       item.checked = false;
       setCheck(!check);
       selectedItems.pop();
-      setSelectedItems(selectedItems);
+      setSelectedItems(selectedItems); // в реальности нужно вынести в отдельную логику
     }
   };
 
@@ -55,7 +58,8 @@ const App = () => {
           <input type='text' className='input' onChange={inputHandler} />
           <ul className='list list_common'>
             {filterItems.map((el, i) => (
-              <li className='list_element' key={i} id={'' + el.id}>
+              // в реальности вынести в отдельный компонент с пропсами
+              <li className='list_element' key={i} id={'' + el.id}> 
                 <input
                   className='checkbox'
                   type='checkbox'
@@ -73,6 +77,7 @@ const App = () => {
           <p className='text'>Выбрано: <span className='span'>{selectedItems.length}</span></p>
           <ul className='list list_selected'>
             {selectedItems.map((el, i) => (
+              // переиспользовать компонент
               <li className='list_element' key={i} id={'' + el.id}>
                 <input
                   className='checkbox'
