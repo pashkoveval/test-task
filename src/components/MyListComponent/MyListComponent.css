@@ -1,0 +1,26 @@
+.column {
+  max-width: 400px;
+}
+
+.input {
+  width: 80%;
+  border-color: #1abc9c;
+  border-radius: 15px;
+}
+
+.list {
+  list-style-type: none;
+  text-align: left;
+}
+
+.list_element {
+  margin: 6px;
+}
+
+.span {
+  font-weight: bold;
+}
+
+.label {
+  margin-left: 10px;
+}

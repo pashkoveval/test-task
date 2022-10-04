@@ -2,41 +2,8 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  margin-bottom: 5vh;
-}
-
 .container {
   margin: auto 10vw;
   display: grid;
   grid-template-columns: 40vw 40vw;
-}
-
-.column {
-  max-width: 400px;
-}
-
-.input {
-  width: 80%;
-  border-color: #1ABC9C;
-  border-radius: 15px;
-}
-
-.list {
-  list-style-type: none;
-  text-align: left;
-}
-
-.list_element {
-  margin: 6px;
-}
-
-.span {
-  font-weight: bold;
 }
